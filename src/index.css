@@ -1,24 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Square&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
-
-@import 'tailwindcss/preflight';
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Square&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allura&display=swap");
+/* @import "tailwindcss/preflight";
+@import "tailwindcss/utilities"; */
+@import "tailwindcss";
 
 @font-face {
-  font-family: 'Nanum Square';
-  src: url('https://fonts.gstatic.com/s/nanumsquare/v15/.../NanumSquare.woff2') format('woff2');
+  font-family: "Nanum Square";
+  src: url("https://fonts.gstatic.com/s/nanumsquare/v15/.../NanumSquare.woff2")
+    format("woff2");
   unicode-range: U+1100-11FF, U+AC00-D7AF;
 }
 
 @theme {
-  --font-allura: 'Allura';
+  --font-allura: "Allura";
   --color-primary: #b83330;
   --color-secondary: #282d2a;
   --color-white: #fff;
 }
 
 body {
-  font-family: 'Playfair Display', 'Nanum Square', sans-serif;
+  font-family: "Playfair Display", "Nanum Square", sans-serif;
   color: #282d2a;
+}
+
+@layer base {
+  h1 {
+    @apply !text-4xl;
+  }
 }
