@@ -1,6 +1,6 @@
 const About = () => {
   return (
-    <section className="w-full h-[calc(100dvh-80px)] bg-pink-200 flex items-center">
+    <section className="w-full h-[calc(100dvh-80px)] flex items-center">
       <div className="mx-32 bg-white w-full h-full flex">
         <div className="w-[45%] h-full py-56">
           <div className="border-r-2 h-full w-full flex flex-col justify-center items-center ">
@@ -13,7 +13,7 @@ const About = () => {
           </div>
         </div>
         <div className="w-[55%] h-full py-56">
-          <div className="h-full flex flex-col justify-center items-start text-xl px-24 leading-10">
+          <div className="h-full flex flex-col justify-center items-start text-xl pl-56 leading-10">
             <p>
               안녕하세요. 민감성 피부 여정을 함께하는 에즈윤입니다.
               <br />
@@ -40,7 +40,7 @@ const About = () => {
               에즈윤은 여러분의 피부 여정을 함께하는 친구 같은 채널이 되고자
               합니다.
             </p>
-            <div className="bg-red-100 w-full p-4 rounded-xl mt-10">
+            <div className="bg-red-100 w-[550px] p-7 rounded-xl mt-10">
               <span className="text-primary">
                 이런 분들을 위해 만들었습니다
               </span>
