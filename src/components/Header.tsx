@@ -1,16 +1,31 @@
+import { useEffect, useState } from "react";
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="fixed left-0 top-0 w-full bg-white">
-      <div className="flex items-center w-full h-[120px] justify-between px-32">
-        <h1 className="font-allura text-primary !text-4xl">AsYun</h1>
-        <ul className="flex flex-row text-primary text-2xl font-semibold">
+    <div
+      className={`sticky top-0 w-full bg-white ${
+        isScrolled ? "border-b border-gray-200 shadow-xm" : ""
+      }`}
+    >
+      <section className="flex items-center h-[60px] justify-between px-12">
+        <h1 className="font-allura text-primary !text-xl">AsYun</h1>
+        <ul className="flex flex-row text-primary text-lg font-semibold">
           <li>About Me</li>
           <li className="pl-7">Videos</li>
           <li className="pl-7">Shop</li>
           <li className="pl-7">Guide</li>
           <li className="pl-7">Contact</li>
         </ul>
-      </div>
+      </section>
     </div>
   );
 };

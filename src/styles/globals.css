@@ -27,4 +27,7 @@ body {
   h1 {
     @apply !text-4xl;
   }
+  section {
+    @apply max-w-[1140px] mx-auto;
+  }
 }

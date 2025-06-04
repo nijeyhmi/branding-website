@@ -9,7 +9,7 @@ import Video from "@/sections/Video";
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="m-auto">
       <Header />
       <main>
         <Main />

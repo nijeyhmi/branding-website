@@ -2,23 +2,25 @@ import Tab from "../components/Tab";
 
 const Video = () => {
   return (
-    <section className="w-full h-[calc(100dvh-80px)] bg-primary flex items-center">
-      <div className="flex flex-col w-full">
-        <div className="flex justify-center w-full text-white text-7xl">
-          <span className="pr-5">[</span>Checkout
-          <span className="pl-3 italic"> My Latest Videos </span>
-          <span className="pl-5">]</span>
+    <div className="w-full h-[calc(100dvh-80px)] bg-primary">
+      <section className=" items-center h-full">
+        <div className="w-full h-full flex flex-col justify-center">
+          <div className="flex justify-center w-full text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl m-5">
+            <span className="pr-5">[</span>Checkout
+            <span className="pl-3 italic"> My Latest Videos </span>
+            <span className="pl-5">]</span>
+          </div>
+          <div className="mt-5">
+            <Tab color="white" type="video" />
+          </div>
+          <div className="flex justify-center w-full text-white text-sm sm:text-sm md:text-md lg:text-lg">
+            <a href="" className="underline">
+              More Videos
+            </a>
+          </div>
         </div>
-        <div>
-          <Tab color="white" type="video" />
-        </div>
-        <div className="flex justify-center w-full text-white text-3xl">
-          <a href="" className="underline">
-            More Videos
-          </a>
-        </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
