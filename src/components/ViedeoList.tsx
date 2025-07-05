@@ -1,6 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 
+type VideoType = {
+  id: string;
+  snippet: {
+    title: string;
+    thumbnails: {
+      high: { url: string };
+    };
+  };
+  statistics: {
+    viewCount: string;
+  };
+};
+
 const YOUTUBE_VIDEO_IDS = [
   "8NL6bB_UOf0",
   "biRAo_91AMo",
@@ -11,7 +24,7 @@ const YOUTUBE_VIDEO_IDS = [
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
   for (let i = 0; i < arr.length; i += size) {
-    const chunk = arr.slice(i, i + size);
+    const chunk: (T | null)[] = arr.slice(i, i + size);
     while (chunk.length < size) {
       chunk.push(null);
     }
@@ -41,7 +54,10 @@ const VideoList = () => {
     return () => window.removeEventListener("resize", handleResize);
   });
 
-  const slides = chunkArrayWithPadding(videos, chunkSize);
+  const slides: (VideoType | null)[][] = chunkArrayWithPadding(
+    videos,
+    chunkSize
+  );
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const isPrevDisabled = currentIndex === 0;

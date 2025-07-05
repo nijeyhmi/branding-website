@@ -4,14 +4,15 @@ import { useEffect, useState } from "react";
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
   for (let i = 0; i < arr.length; i += size) {
-    const chunk = arr.slice(i, i + size);
+    const chunk: (T | null)[] = arr.slice(i, i + size);
     while (chunk.length < size) {
-      chunk.push(null);
+      chunk.push(null); 
     }
     result.push(chunk);
   }
   return result;
 }
+
 
 const shopItemList = [
   {
