@@ -1,7 +1,11 @@
 "use client";
 import Tab from "@/components/Tab";
 
-const Shop = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
+const Shop = ({
+  refItem,
+}: {
+  refItem: React.RefObject<HTMLDivElement | null>;
+}) => {
   return (
     <section className="w-full h-[calc(100dvh-60px)] bg-white" ref={refItem}>
       <div className="flex flex-col justify-center h-full items-center">

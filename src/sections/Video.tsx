@@ -1,7 +1,11 @@
 "use client";
 import Tab from "../components/Tab";
 
-const Video = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
+const Video = ({
+  refItem,
+}: {
+  refItem: React.RefObject<HTMLDivElement | null>;
+}) => {
   return (
     <div className="w-full h-[calc(100dvh-60px)] bg-primary" ref={refItem}>
       <section className="h-full">

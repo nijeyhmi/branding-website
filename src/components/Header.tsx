@@ -7,11 +7,11 @@ const Header = ({
   guideRef,
   contactRef,
 }: {
-  aboutRef: React.RefObject<HTMLDivElement>;
-  videoRef: React.RefObject<HTMLDivElement>;
-  shopRef: React.RefObject<HTMLDivElement>;
-  guideRef: React.RefObject<HTMLDivElement>;
-  contactRef: React.RefObject<HTMLDivElement>;
+  aboutRef: React.RefObject<HTMLDivElement | null>;
+  videoRef: React.RefObject<HTMLDivElement | null>;
+  shopRef: React.RefObject<HTMLDivElement | null>;
+  guideRef: React.RefObject<HTMLDivElement | null>;
+  contactRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
@@ -26,12 +26,13 @@ const Header = ({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    console.log("event");
-    console.log(ref);
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
+    if (!ref.current) return;
+
     const offset = 60;
     const top =
       ref.current.getBoundingClientRect().top + window.scrollY - offset;
+
     window.scrollTo({ top, behavior: "smooth" });
   };
 

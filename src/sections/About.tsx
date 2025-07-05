@@ -1,4 +1,8 @@
-const About = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
+const About = ({
+  refItem,
+}: {
+  refItem: React.RefObject<HTMLDivElement | null>;
+}) => {
   return (
     <section className="w-full h-[calc(100dvh-60px)]" ref={refItem}>
       <div className="mx-auto w-full md:max-w-[calc(100dvw-250px)] px-4 py-4 flex flex-col justify-center md:flex-row md:items-center h-full">

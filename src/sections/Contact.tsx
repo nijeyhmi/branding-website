@@ -1,4 +1,8 @@
-const Contact = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
+const Contact = ({
+  refItem,
+}: {
+  refItem: React.RefObject<HTMLDivElement | null>;
+}) => {
   return (
     <div
       className="bg-[url('/img/contactImg.png')] bg-cover md:bg-center bg-[position:60%_center] w-full h-[calc(100dvh-60px)]"
