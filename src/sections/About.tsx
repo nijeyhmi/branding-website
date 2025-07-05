@@ -1,21 +1,22 @@
-const About = () => {
+const About = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
   return (
-    <section className="w-full h-[calc(100dvh-80px)]">
-      <div className="mx-auto max-w-[calc(100dvw-250px)] h-full px-4 py-4 flex items-center">
-        <div className="w-[50%] h-full py-36">
-          <div className="border-r-2 h-full w-full flex flex-col justify-center items-center ">
-            <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold">
+    <section className="w-full h-[calc(100dvh-60px)]" ref={refItem}>
+      <div className="mx-auto w-full md:max-w-[calc(100dvw-250px)] px-4 py-4 flex flex-col justify-center md:flex-row md:items-center h-full">
+        <div className="order-1 w-full md:w-1/2 py-5 md:py-36">
+          <div className="border-r-0 md:border-r-2 md:h-full w-full flex flex-col justify-center items-center">
+            <div className="text-4xl md:text-7xl lg:text-8xl font-bold">
               About Me
             </div>
-            <p className="font-bold text-primary text-center mt-14 text-md sm:text-xl md:text-lg lg:text-xl">
+            <p className="font-bold text-primary text-center mt-10 md:mt-14 text-md sm:text-xl md:text-lg lg:text-xl">
               “타인의 시선보다, 내 피부의 소리에 귀 기울이는 시간"
               <br />
               에즈윤은 '나다운 아름다움'을 찾아가는 여정을 함께합니다.
             </p>
           </div>
         </div>
-        <div className="w-[50%] h-full py-36">
-          <div className="h-full flex flex-col justify-center items-start text-sm sm:text-sm md:text-md lg:text-md pl-20 leading-6">
+
+        <div className="order-2 w-full md:w-1/2 px-7 md:py-36 md:px-0">
+          <div className="h-full flex flex-col justify-center items-start text-sm sm:text-sm md:text-md lg:text-md md:pl-20 leading-6">
             <p>
               안녕하세요. 민감성 피부 여정을 함께하는 에즈윤입니다.
               <br />
@@ -42,7 +43,7 @@ const About = () => {
               에즈윤은 여러분의 피부 여정을 함께하는 친구 같은 채널이 되고자
               합니다.
             </p>
-            <div className="bg-red-100 w-2/3 p-5 rounded-xl mt-3">
+            <div className="bg-red-100 w-full md:w-2/3 p-5 rounded-xl mt-3">
               <span className="text-primary">
                 이런 분들을 위해 만들었습니다
               </span>

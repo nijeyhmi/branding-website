@@ -1,6 +1,22 @@
+"use client";
 import { useEffect, useState } from "react";
-const Header = () => {
+const Header = ({
+  aboutRef,
+  videoRef,
+  shopRef,
+  guideRef,
+  contactRef,
+}: {
+  aboutRef: React.RefObject<HTMLDivElement>;
+  videoRef: React.RefObject<HTMLDivElement>;
+  shopRef: React.RefObject<HTMLDivElement>;
+  guideRef: React.RefObject<HTMLDivElement>;
+  contactRef: React.RefObject<HTMLDivElement>;
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -10,22 +26,123 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    console.log("event");
+    console.log(ref);
+    const offset = 60;
+    const top =
+      ref.current.getBoundingClientRect().top + window.scrollY - offset;
+    window.scrollTo({ top, behavior: "smooth" });
+  };
+
   return (
     <div
-      className={`sticky top-0 w-full bg-white ${
+      className={`sticky top-0 w-full bg-white z-50 ${
         isScrolled ? "border-b border-gray-200 shadow-xm" : ""
       }`}
     >
-      <section className="flex items-center h-[60px] justify-between px-12">
+      {/* 데스크탑 */}
+      <section className="hidden md:flex items-center h-[60px] justify-between px-12">
         <h1 className="font-allura text-primary !text-xl">AsYun</h1>
         <ul className="flex flex-row text-primary text-lg font-semibold">
-          <li>About Me</li>
-          <li className="pl-7">Videos</li>
-          <li className="pl-7">Shop</li>
-          <li className="pl-7">Guide</li>
-          <li className="pl-7">Contact</li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(aboutRef)}
+          >
+            About Me
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(videoRef)}
+          >
+            Videos
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(shopRef)}
+          >
+            Shop
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(guideRef)}
+          >
+            Guide
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(contactRef)}
+          >
+            Contact
+          </li>
         </ul>
       </section>
+      {/* 모바일 헤더 */}
+      <section className="flex md:hidden items-center h-[60px] justify-between px-4 w-full">
+        <h1 className="font-allura text-primary text-xl">AsYun</h1>
+        <button onClick={toggleMenu}>
+          {isOpen ? (
+            <img
+              src="/icons/x.svg"
+              alt="YouTube"
+              className="w-8 h-8 block object-contain"
+            />
+          ) : (
+            <img
+              src="/icons/hamburger.svg"
+              alt="YouTube"
+              className="w-8 h-8 block object-contain"
+            />
+          )}
+        </button>
+      </section>
+
+      {/* 모바일 메뉴 */}
+      <div
+        className={`
+          absolute top-[60px] left-0 w-full bg-white shadow-md
+          px-6 py-4 text-primary text-lg font-semibold
+          transform transition-all duration-200 ease-in-out
+          ${
+            isOpen
+              ? "translate-y-0 opacity-100 max-h-96"
+              : "-translate-y-full opacity-0 pointer-events-none max-h-0"
+          }
+        `}
+      >
+        <ul className="flex flex-col gap-4 text-primary text-lg font-semibold">
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(aboutRef)}
+          >
+            About Me
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(videoRef)}
+          >
+            Videos
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(shopRef)}
+          >
+            Shop
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(guideRef)}
+          >
+            Guide
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(contactRef)}
+          >
+            Contact
+          </li>
+        </ul>
+      </div>
     </div>
   );
 };

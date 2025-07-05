@@ -1,9 +1,9 @@
-const Guide = () => {
+const Guide = ({ refItem }: { refItem: React.RefObject<HTMLDivElement> }) => {
   return (
-    <div className="w-full h-[calc(100dvh-80px)] bg-primary">
+    <div className="w-full h-[calc(100dvh-60px)] bg-primary" ref={refItem}>
       <section className="h-full">
-        <div className="flex flex-col justify-center w-full h-full">
-          <div className="flex justify-center w-full text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-5">
+        <div className="w-full h-full flex flex-col justify-center items-center">
+          <div className="flex justify-center items-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none mb-5">
             <span className="pr-5">[</span>Free
             <span className="pl-3 italic"> Guides </span>
             <span className="pl-5">]</span>
@@ -11,8 +11,8 @@ const Guide = () => {
           <div className="text-center text-white text-lg">
             민감성 피부를 위한 무료 자료집
           </div>
-          <div className="flex items-center justify-evenly">
-            <div className="w-[30%]">
+          <div className="flex md:flex-row flex-col items-center justify-evenly">
+            <div className="w-full md:w-[30%] hidden md:block">
               <div className="w-full">
                 <iframe
                   width="400"
@@ -25,14 +25,18 @@ const Guide = () => {
                 ></iframe>
               </div>
             </div>
-            <div className="flex flex-col items-center mx-20">
-              <img src="/img/bookCover.png" alt="" className="w-[140px] mb-7" />
+            <div className="flex flex-col items-center md:mx-20 pt-7 md:pt-0">
+              <img
+                src="/img/bookCover.png"
+                alt=""
+                className="w-[100px] md:w-[140px] mb-7"
+              />
               <button className="p-4 bg-red-100 text-primary w-[280px] rounded-3xl">
                 자료집 무료 신청하기
               </button>
             </div>
-            <div className="w-[40%]">
-              <div className="h-full flex flex-col text-sm sm:text-sm md:text-md lg:text-md leading-6 text-white">
+            <div className="w-full md:w-[40%]">
+              <div className="h-full flex flex-col text-sm sm:text-sm md:text-md lg:text-md leading-6 text-white px-10 pt-5 md:p-0">
                 <p>
                   민감성 피부로 힘든 시간을 보낼 때,
                   <br />

@@ -2,18 +2,23 @@ import Typing from "@/components/Typing";
 
 const Main = () => {
   return (
-    <section className="w-full h-[calc(100dvh-80px)] bg-white">
-      <div className="mx-auto max-w-[calc(100dvw-250px)] h-full px-4 py-4">
-        <div className="flex flex-col justify-between bg-[url('/img/mainImg.png')] bg-cover bg-no-repeat bg-center px-4 sm:px-6 md:px-12 py-6 md:py-8 lg:py-12 text-right h-full">
+    <section className="w-full h-[calc(100dvh-60px)] bg-white">
+      <div className="w-full h-full px-0 md:px-4 md:py-4 md:max-w-[calc(100dvw-250px)] md:mx-auto">
+        <div
+          className="
+        flex flex-col justify-between
+        bg-[url('/img/mainImg.png')] bg-cover bg-no-repeat md:bg-center bg-[position:40%_center]
+        px-4 sm:px-6 md:px-12 py-6 md:py-8 lg:py-12
+        text-right h-full
+      "
+        >
           <div>
-            <div className="">
-              <Typing
-                lines={["The Journey to", "My True Skin", "─ with AsYun"]}
-                speed={100}
-                delay={800}
-                highlightLine={2}
-              />
-            </div>
+            <Typing
+              lines={["The Journey to", "My True Skin", "─ with AsYun"]}
+              speed={100}
+              delay={800}
+              highlightLine={2}
+            />
           </div>
           <div>
             <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
