@@ -2,7 +2,7 @@ import Typing from "@/components/Typing";
 
 const Main = () => {
   return (
-    <section className="w-full h-[calc(100dvh-60px)] bg-white">
+    <section className="w-full h-[calc(100dvh-50px)] md:h-[calc(100dvh-60px)] bg-white">
       <div className="w-full h-full px-0 md:px-4 md:py-4 md:max-w-[calc(100dvw-250px)] md:mx-auto">
         <div
           className="

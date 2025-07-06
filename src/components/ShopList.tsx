@@ -6,13 +6,12 @@ function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   for (let i = 0; i < arr.length; i += size) {
     const chunk: (T | null)[] = arr.slice(i, i + size);
     while (chunk.length < size) {
-      chunk.push(null); 
+      chunk.push(null);
     }
     result.push(chunk);
   }
   return result;
 }
-
 
 const shopItemList = [
   {
@@ -136,7 +135,7 @@ const ShopList = ({ type }: { type: string }) => {
                       }}
                     >
                       <div className="text-sm sm:text-sm md:text-md lg:text-lg font-nanum mx-5 group-hover:text-white">
-                        {`0${i * 5 + idx + 1}`}
+                        {`${i * chunkSize + idx + 1}`.padStart(2, "0")}
                       </div>
                     </div>
 

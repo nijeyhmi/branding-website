@@ -112,7 +112,7 @@ const VideoList = () => {
                       />
                     </div>
                     <div className="mt-2">
-                      <p className="font-semibold line-clamp-2">
+                      <p className="font-semibold line-clamp-2 text-sm sm:text-md">
                         {video.snippet.title}
                       </p>
                       <p className="text-sm text-gray-600 font-nanum">
@@ -121,7 +121,7 @@ const VideoList = () => {
                       </p>
                     </div>
                     <div className="mt-2 mb-3 text-center text-primary font-bold cursor-pointer">
-                      <button className="relative py-1 text-md font-bold text-primary after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:left-0 hover:after:w-full cursor-pointer after:bg-primary">
+                      <button className="relative py-1 text-sm sm:text-md font-bold text-primary after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:left-0 hover:after:w-full cursor-pointer after:bg-primary">
                         WATCH NOW
                       </button>
                     </div>

@@ -5,7 +5,7 @@ const Contact = ({
 }) => {
   return (
     <div
-      className="bg-[url('/img/contactImg.png')] bg-cover md:bg-center bg-[position:60%_center] w-full h-[calc(100dvh-60px)]"
+      className="bg-[url('/img/contactImg.png')] bg-cover md:bg-center bg-[position:60%_center] w-full h-[calc(100dvh-50px)] md:h-[calc(100dvh-60px)]"
       ref={refItem}
     >
       <section className="w-full h-full">
@@ -17,37 +17,39 @@ const Contact = ({
               </div>
               <p className="text-white text-end md:text-center mt-10 text-md sm:text-xl md:text-lg lg:text-xl font-nanum">
                 <span className="block">Let's Work Together</span>
-                <span className="block pt-3">And Create Something Great</span>
+                <span className="block pt-1 sm:pt-3">
+                  And Create Something Great
+                </span>
               </p>
             </div>
           </div>
           <div className="order-2 w-full md:w-[45%] h-full md:ml-24">
             <ul className="h-full flex flex-col justify-center items-start text-xl md:pl-24 leading-10">
-              <li className="flex items-center space-x-3 p-4 h-20">
+              <li className="flex items-center space-x-3 p-4 h-14 sm:h-20">
                 <img
                   src="/icons/mail.svg"
                   alt="Mail"
-                  className="w-12 h-12 block object-contain"
+                  className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
                 <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
-                  94yjung@gmail.com
+                  94yjung@naver.com
                 </span>
               </li>
-              <li className="flex items-center space-x-3 p-4 h-20">
+              <li className="flex items-center space-x-3 p-4 h-14 sm:h-20">
                 <img
                   src="/icons/call.svg"
                   alt="Call"
-                  className="w-12 h-12 block object-contain"
+                  className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
                 <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
                   +82 010 6740 9786
                 </span>
               </li>
-              <li className="flex items-center space-x-3 p-4 h-20">
+              <li className="flex items-center space-x-3 p-4 h-14 sm:h-20">
                 <img
                   src="/icons/youtube.svg"
                   alt="YouTube"
-                  className="w-12 h-12 block object-contain"
+                  className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
                 <a
                   href="https://www.youtube.com/@%EC%97%90%EC%A6%88%EC%9C%A4Asyun-w7d"
@@ -56,11 +58,11 @@ const Contact = ({
                   youtube.com/@에즈윤Asyun
                 </a>
               </li>
-              <li className="flex items-center space-x-3 p-4 h-20">
+              <li className="flex items-center space-x-3 p-4 h-14 sm:h-20">
                 <img
                   src="/icons/kakaotalk.svg"
                   alt="Kakaotalk"
-                  className="w-12 h-12 block object-contain"
+                  className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
                 <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
                   As_yun
@@ -68,7 +70,7 @@ const Contact = ({
                 <img
                   src="/img/QRCode.png"
                   alt="KakaotalkQRCode"
-                  className="w-24 h-24 block object-contain"
+                  className="w-16 h-16 sm:w-24 sm:h-24 block object-contain"
                 />
               </li>
             </ul>

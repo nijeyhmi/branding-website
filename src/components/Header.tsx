@@ -29,7 +29,7 @@ const Header = ({
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (!ref.current) return;
 
-    const offset = 60;
+    const offset = window.innerWidth < 768 ? 50 : 60;
     const top =
       ref.current.getBoundingClientRect().top + window.scrollY - offset;
 
@@ -44,7 +44,9 @@ const Header = ({
     >
       {/* 데스크탑 */}
       <section className="hidden md:flex items-center h-[60px] justify-between px-12">
-        <h1 className="font-allura text-primary !text-xl">AsYun</h1>
+        <h1 className="font-allura text-primary !text-xl">
+          <a href="/">AsYun</a>
+        </h1>
         <ul className="flex flex-row text-primary text-lg font-semibold">
           <li
             className="cursor-pointer"
@@ -79,8 +81,10 @@ const Header = ({
         </ul>
       </section>
       {/* 모바일 헤더 */}
-      <section className="flex md:hidden items-center h-[60px] justify-between px-4 w-full">
-        <h1 className="font-allura text-primary text-xl">AsYun</h1>
+      <section className="flex md:hidden items-center h-[50px] justify-between px-4 w-full">
+        <h2 className="font-allura text-primary text-3xl">
+          <a href="/">AsYun</a>
+        </h2>
         <button onClick={toggleMenu}>
           {isOpen ? (
             <img
@@ -101,7 +105,7 @@ const Header = ({
       {/* 모바일 메뉴 */}
       <div
         className={`
-          absolute top-[60px] left-0 w-full bg-white shadow-md
+          absolute top-[50px] left-0 w-full bg-white shadow-md
           px-6 py-4 text-primary text-lg font-semibold
           transform transition-all duration-200 ease-in-out
           ${
