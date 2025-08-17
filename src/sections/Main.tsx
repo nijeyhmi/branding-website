@@ -1,16 +1,6 @@
 import SlideLine from "@/components/SlideLine";
-// import Typing from "@/components/Typing";
 
 const Main = () => {
-  const lines: {
-    text: string;
-    from: "right" | "left";
-    isHighlight: boolean;
-  }[] = [
-    { text: "The Journey to", from: "right", isHighlight: false },
-    { text: "My True Skin", from: "left", isHighlight: false },
-    { text: "─ with AsYun", from: "right", isHighlight: true },
-  ];
   return (
     <section className="w-full h-[calc(100dvh-50px)] md:h-[calc(100dvh-60px)] bg-white">
       <div className="w-full h-full px-0 md:px-4 md:py-4 md:max-w-[calc(100dvw-250px)] md:mx-auto">
@@ -23,20 +13,24 @@ const Main = () => {
       "
         >
           <div>
-            {/* <Typing
-              lines={["The Journey to", "My True Skin", "─ with AsYun"]}
-              speed={100}
-              delay={800}
-              highlightLine={2}
-            /> */}
-            {lines.map((line, i) => (
-              <SlideLine
-                text={line.text}
-                from={line.from}
-                delay={i * 500 + 100}
-                isHighlight={line.isHighlight}
-              />
-            ))}
+            <SlideLine
+              text="The Journey To"
+              from="right"
+              delay={100}
+              isHighlight={false}
+            />
+            <SlideLine
+              text="My True Skin"
+              from="right"
+              delay={100}
+              isHighlight={false}
+            />
+            <SlideLine
+              text="─ with AsYun"
+              from="left"
+              delay={600}
+              isHighlight={true}
+            />
           </div>
           <div>
             <button className="group relative inline-block text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl">
@@ -44,6 +38,8 @@ const Main = () => {
                 <a
                   href="https://www.youtube.com/@%EC%97%90%EC%A6%88%EC%9C%A4Asyun-w7d"
                   className="inline-block group align-middle"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   Get Started
                   <span className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
