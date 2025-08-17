@@ -25,6 +25,8 @@ const Video = ({
             <a
               href="https://www.youtube.com/@%EC%97%90%EC%A6%88%EC%9C%A4Asyun-w7d"
               className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               More Videos
             </a>

@@ -43,7 +43,13 @@ const Guide = ({
                 className="w-[100px] md:w-[140px] mb-7"
               />
               <button className="p-4 bg-red-100 text-primary w-[250px] sm:w-[280px] rounded-3xl">
-                자료집 무료 신청하기
+                <a
+                  href="https://bit.ly/43Id0lh"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  자료집 무료 신청하기
+                </a>
               </button>
             </div>
             <div className="w-full md:w-[40%]">
