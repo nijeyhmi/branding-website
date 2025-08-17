@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import videoItemList from "dist/videoItems.json";
 
 type VideoType = {
   id: string;
@@ -8,18 +9,12 @@ type VideoType = {
     thumbnails: {
       high: { url: string };
     };
+    publishedAt: string;
   };
   statistics: {
     viewCount: string;
   };
 };
-
-const YOUTUBE_VIDEO_IDS = [
-  "8NL6bB_UOf0",
-  "biRAo_91AMo",
-  "LDJ1Nt5gcR8",
-  "j7c6Vqemw70",
-];
 
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
@@ -33,16 +28,28 @@ function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   return result;
 }
 
-const VideoList = () => {
+const VideoList = ({ type }: { type: string }) => {
   const [chunkSize, setChunkSize] = useState(3);
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    const ids = YOUTUBE_VIDEO_IDS.join(",");
+    const ids =
+      type === "전체"
+        ? videoItemList.list.map((item) => item.id).join(",")
+        : videoItemList.byCategory[type].map((item) => item.id).join(",");
     fetch(`/api/youtube/videos?ids=${ids}`)
       .then((res) => res.json())
-      .then((data) => setVideos(data.items));
-  }, []);
+      .then((data) =>
+        setVideos(
+          data.items.sort((a: VideoType, b: VideoType) => {
+            return (
+              new Date(b.snippet.publishedAt).getTime() -
+              new Date(a.snippet.publishedAt).getTime()
+            );
+          })
+        )
+      );
+  }, [type]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -59,6 +66,10 @@ const VideoList = () => {
     chunkSize
   );
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [type]);
 
   const isPrevDisabled = currentIndex === 0;
   const isNextDisabled = currentIndex === slides.length - 1;
@@ -122,7 +133,13 @@ const VideoList = () => {
                     </div>
                     <div className="mt-2 mb-3 text-center text-primary font-bold cursor-pointer">
                       <button className="relative py-1 text-sm sm:text-md font-bold text-primary after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:left-0 hover:after:w-full cursor-pointer after:bg-primary">
-                        WATCH NOW
+                        <a
+                          href={`https://www.youtube.com/watch?v=${video.id}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          WATCH NOW
+                        </a>
                       </button>
                     </div>
                   </div>

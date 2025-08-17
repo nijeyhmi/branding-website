@@ -7,64 +7,18 @@ const Tab = ({ color, type }: { color: string; type: "video" | "shop" }) => {
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const renderVideoContent = () => {
-    switch (activeTab) {
-      case "전체":
-        return (
-          <div>
-            <VideoList />
-          </div>
-        );
-      case "크림":
-        return (
-          <div>
-            <VideoList />
-          </div>
-        );
-      case "클렌저":
-        return (
-          <div>
-            <VideoList />
-          </div>
-        );
-      case "선크림":
-        return (
-          <div>
-            <VideoList />
-          </div>
-        );
-      default:
-        return null;
-    }
+    return (
+      <div>
+        <VideoList type={activeTab} />
+      </div>
+    );
   };
   const renderShopContent = () => {
-    switch (activeTab) {
-      case "전체":
-        return (
-          <div>
-            <ShopList type="all" />
-          </div>
-        );
-      case "크림":
-        return (
-          <div>
-            <ShopList type="cream" />
-          </div>
-        );
-      case "클렌저":
-        return (
-          <div>
-            <ShopList type="cleansing" />
-          </div>
-        );
-      case "선크림":
-        return (
-          <div>
-            <ShopList type="sunscreen" />
-          </div>
-        );
-      default:
-        return null;
-    }
+    return (
+      <div>
+        <ShopList category={activeTab} />
+      </div>
+    );
   };
 
   return (
@@ -74,8 +28,8 @@ const Tab = ({ color, type }: { color: string; type: "video" | "shop" }) => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`w-1/4 mx-24 py-2 text-md sm:text-xl md:text-lg lg:text-xl font-light transition-colors cursor-pointer text-${color} ${
-              activeTab === tab ? `border-b-4 border-${color}` : ""
+            className={`w-1/4 mx-24 py-2 text-md sm:text-xl md:text-lg lg:text-xl transition-colors cursor-pointer text-${color} ${
+              activeTab === tab ? `border-b-4 border-${color} font-bold` : ""
             }`}
           >
             {tab}

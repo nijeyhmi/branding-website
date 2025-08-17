@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import shopItemList from "../data/shopItems.json";
+import shopItemList from "dist/shopItems.json";
 
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
@@ -14,12 +14,10 @@ function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   return result;
 }
 
-const ShopList = ({ type }: { type: string }) => {
+const ShopList = ({ category }: { category: string }) => {
   const [chunkSize, setChunkSize] = useState(5);
   const filteredShopItemList =
-    type === "all"
-      ? shopItemList
-      : shopItemList.filter((item) => item.type === type);
+    category === "전체" ? shopItemList.list : shopItemList.byCategory[category];
   const slides = chunkArrayWithPadding(filteredShopItemList, chunkSize);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -35,7 +33,7 @@ const ShopList = ({ type }: { type: string }) => {
   };
   useEffect(() => {
     setCurrentIndex(0);
-  }, [type]);
+  }, [category]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -87,7 +85,9 @@ const ShopList = ({ type }: { type: string }) => {
                     <div
                       className="w-full h-[150px] bg-contain bg-center bg-no-repeat"
                       style={{
-                        backgroundImage: `url(/img/shop/${item.img})`,
+                        backgroundImage: `url(/img/shop/${encodeURIComponent(
+                          item.name
+                        )}.png)`,
                       }}
                     >
                       <div className="text-sm sm:text-sm md:text-md lg:text-lg font-nanum mx-5 group-hover:text-white">
@@ -95,7 +95,7 @@ const ShopList = ({ type }: { type: string }) => {
                       </div>
                     </div>
 
-                    <div className="mx-5 py-5 text-center relative z-10">
+                    <div className="mx-4 py-5 text-center relative z-10 break-keep">
                       <span className="text-sm sm:text-sm md:text-md lg:text-md font-bold group-hover:text-white">
                         {item.name}
                       </span>
@@ -115,7 +115,13 @@ const ShopList = ({ type }: { type: string }) => {
     `}
                       >
                         <button className="px-5 py-2 text-md font-nanum rounded-xl bg-primary text-white border border-white cursor-pointer">
-                          SHOP NOW
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            SHOP NOW
+                          </a>
                         </button>
                       </div>
                     </div>
