@@ -3,12 +3,10 @@ import fs from "node:fs";
 import path from "node:path";
 import { google } from "googleapis";
 import { z } from "zod";
+import { loadServiceAccount } from ".";
 
 // --------- 환경설정 ---------
 const SPREADSHEET_ID = mustEnv("VIDEO_SPREADSHEET_ID");
-const SERVICE_ACCOUNT_KEY =
-  process.env.SERVICE_ACCOUNT_KEY ??
-  "scripts/sheets-json/keys/serviceAccount.json";
 const SHEET_NAME = process.env.SHEET_NAME; // 예: "Sheet1"
 const RANGE = process.env.RANGE; // 예: "Sheet1!A1:Z"
 const OUT_DIR = process.env.OUT_DIR ?? "dist";
@@ -50,7 +48,7 @@ function normalizeHeader(h: unknown) {
 // --------- 인증 ---------
 async function getClient() {
   const auth = new google.auth.GoogleAuth({
-    keyFile: SERVICE_ACCOUNT_KEY,
+    keyFile: loadServiceAccount(),
     scopes: [
       "https://www.googleapis.com/auth/spreadsheets.readonly",
       // 파일로 저장만 할 거면 Drive 스코프는 불필요. 만약 드라이브에 쓰려면 아래 추가

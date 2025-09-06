@@ -5,46 +5,13 @@ import fs from "fs";
 import fsp from "fs/promises";
 import path from "path";
 import pLimit from "p-limit";
+import { loadServiceAccount } from ".";
 
 type SAJson = {
   client_email: string;
   private_key: string;
   // 나머지 필드는 사용 안 함
 };
-
-function loadServiceAccount() {
-  const raw = process.env.SERVICE_ACCOUNT_KEY;
-
-  if (raw && raw.trim().length > 0) {
-    const trimmed = raw.trim();
-
-    // JSON 본문 그대로 붙여넣은 경우
-    if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
-      return JSON.parse(trimmed);
-    }
-
-    // base64로 넣은 경우 (ewog..., eyJ... 이런 형태)
-    try {
-      const decoded = Buffer.from(trimmed, "base64").toString("utf8");
-      return JSON.parse(decoded);
-    } catch {
-      // base64 아니면 그냥 넘어감
-    }
-
-    // 파일 경로로 넣은 경우 (로컬 테스트용)
-    if (fs.existsSync(trimmed)) {
-      return JSON.parse(fs.readFileSync(trimmed, "utf8"));
-    }
-
-    throw new Error(
-      "SERVICE_ACCOUNT_KEY 값이 JSON / base64 / 파일경로 어디에도 해당하지 않음"
-    );
-  }
-
-  // 아예 env 없으면 로컬 fallback
-  const fallback = path.resolve("scripts/sheets-json/keys/serviceAccount.json");
-  return JSON.parse(fs.readFileSync(fallback, "utf8"));
-}
 
 const DRIVE_FOLDER_ID = process.env.DRIVE_FOLDER_ID;
 const DRIVE_IMAGE_DIR = process.env.DRIVE_IMAGE_DIR || "public/drive-images";
