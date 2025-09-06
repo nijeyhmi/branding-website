@@ -54,15 +54,21 @@ function normalizeHeader(h: unknown) {
 
 // --------- 인증 ---------
 async function getClient() {
+  const sa = loadServiceAccount(); // { client_email, private_key, ... } 객체
+
   const auth = new google.auth.GoogleAuth({
-    keyFile: loadServiceAccount(),
+    credentials: {
+      client_email: sa.client_email,
+      private_key: sa.private_key, // BEGIN/END 포함, \n 포함 그대로
+    },
     scopes: [
       "https://www.googleapis.com/auth/spreadsheets.readonly",
-      // 파일로 저장만 할 거면 Drive 스코프는 불필요. 만약 드라이브에 쓰려면 아래 추가
-      // 'https://www.googleapis.com/auth/drive.file'
+      // 드라이브 읽기 필요하면 추가:
+      // "https://www.googleapis.com/auth/drive.readonly",
     ],
   });
-  return await auth.getClient();
+
+  return auth.getClient();
 }
 
 // --------- 시트 읽기 (재시도 포함) ---------
