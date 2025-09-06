@@ -17,7 +17,8 @@ const keyMap: Record<string, string> = {
   제품분류: "type",
   제품이름: "name",
   제품특징: "desc",
-  제품링크: "url",
+  쿠팡링크: "url1",
+  올영링크: "url2",
 };
 
 // 스키마(필요에 따라 수정)
@@ -27,12 +28,22 @@ const RowSchema = z.object({
     .string()
     .nullish()
     .transform((v) => v ?? null),
-  name: z.string().min(1),
+  name: z
+    .string()
+    .nullish()
+    .transform((v) => (v ? v : null)),
   desc: z
     .string()
     .min(1)
     .transform((v) => v.replace(/\n/g, "<br/>")),
-  url: z.string().min(1),
+  url1: z
+    .string()
+    .nullish()
+    .transform((v) => (v ? v : null)),
+  url2: z
+    .string()
+    .nullish()
+    .transform((v) => (v ? v : null)),
 });
 
 type Row = z.infer<typeof RowSchema>;
