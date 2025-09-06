@@ -75,9 +75,14 @@ async function main() {
     throw new Error("Missing env: DRIVE_FOLDER_ID or GOOGLE_SERVICE_ACCOUNT");
   }
 
-  const sa: SAJson = JSON.parse(
-    fs.readFileSync(GOOGLE_SERVICE_ACCOUNT, "utf8")
-  );
+  let sa: any;
+
+  if (process.env.SERVICE_ACCOUNT_KEY) {
+    sa = JSON.parse(GOOGLE_SERVICE_ACCOUNT);
+  } else {
+    const raw = fs.readFileSync(GOOGLE_SERVICE_ACCOUNT, "utf8");
+    sa = JSON.parse(raw);
+  }
 
   const auth = new google.auth.JWT({
     email: sa.client_email,
