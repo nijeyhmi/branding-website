@@ -4,6 +4,8 @@ import Main from "@/sections/Main";
 import About from "@/sections/About";
 import Contact from "@/sections/Contact";
 import Guide from "@/sections/Guide";
+import Chat from "@/sections/Chat";
+import Community from "@/sections/Community";
 import Shop from "@/sections/Shop";
 import Video from "@/sections/Video";
 import { useRef } from "react";
@@ -13,17 +15,29 @@ export default function Home() {
   const videoRef = useRef<HTMLDivElement>(null);
   const shopRef = useRef<HTMLDivElement>(null);
   const guideRef = useRef<HTMLDivElement>(null);
+  const chatRef = useRef<HTMLDivElement>(null);
+  const communityRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="m-auto">
-      <Header aboutRef={aboutRef} videoRef={videoRef} shopRef={shopRef} guideRef={guideRef} contactRef={contactRef} />
+      <Header
+        aboutRef={aboutRef}
+        videoRef={videoRef}
+        shopRef={shopRef}
+        guideRef={guideRef}
+        chatRef={chatRef}
+        communityRef={communityRef}
+        contactRef={contactRef}
+      />
       <main>
         <Main />
         <About refItem={aboutRef} />
         <Video refItem={videoRef} />
         <Shop refItem={shopRef} />
         <Guide refItem={guideRef} />
+        <Chat refItem={chatRef} />
+        <Community refItem={communityRef} />
         <Contact refItem={contactRef} />
       </main>
     </div>

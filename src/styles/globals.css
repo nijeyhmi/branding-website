@@ -28,6 +28,6 @@ body {
     @apply !text-4xl;
   }
   section {
-    @apply max-w-[1140px] mx-auto;
+    @apply max-w-[1280px] mx-auto;
   }
 }

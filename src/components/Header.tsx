@@ -5,12 +5,16 @@ const Header = ({
   videoRef,
   shopRef,
   guideRef,
+  chatRef,
+  communityRef,
   contactRef,
 }: {
   aboutRef: React.RefObject<HTMLDivElement | null>;
   videoRef: React.RefObject<HTMLDivElement | null>;
   shopRef: React.RefObject<HTMLDivElement | null>;
   guideRef: React.RefObject<HTMLDivElement | null>;
+  chatRef: React.RefObject<HTMLDivElement | null>;
+  communityRef: React.RefObject<HTMLDivElement | null>;
   contactRef: React.RefObject<HTMLDivElement | null>;
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -71,6 +75,18 @@ const Header = ({
             onClick={() => scrollToSection(guideRef)}
           >
             Guide
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(chatRef)}
+          >
+            Chat
+          </li>
+          <li
+            className="cursor-pointer pl-7"
+            onClick={() => scrollToSection(communityRef)}
+          >
+            Community
           </li>
           <li
             className="cursor-pointer pl-7"
@@ -139,6 +155,18 @@ const Header = ({
             onClick={() => scrollToSection(guideRef)}
           >
             Guide
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(chatRef)}
+          >
+            Chat
+          </li>
+          <li
+            className="cursor-pointer"
+            onClick={() => scrollToSection(communityRef)}
+          >
+            Community
           </li>
           <li
             className="cursor-pointer"
