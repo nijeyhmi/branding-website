@@ -15,6 +15,8 @@ type VideoType = {
     viewCount: string;
   };
 };
+type Category = "크림" | "클렌저" | "선크림" | "전체";
+
 
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
@@ -28,7 +30,7 @@ function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   return result;
 }
 
-const VideoList = ({ type }: { type: string }) => {
+const VideoList = ({ type }: { type: Category }) => {
   const [chunkSize, setChunkSize] = useState(3);
   const [videos, setVideos] = useState([]);
 

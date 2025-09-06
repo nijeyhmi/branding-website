@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import shopItemList from "dist/shopItems.json";
 
+type Category = "크림" | "클렌저" | "선크림" | "전체";
+
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
   for (let i = 0; i < arr.length; i += size) {
@@ -14,7 +16,7 @@ function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   return result;
 }
 
-const ShopList = ({ category }: { category: string }) => {
+const ShopList = ({ category }: { category: Category }) => {
   const [chunkSize, setChunkSize] = useState(5);
   const filteredShopItemList =
     category === "전체" ? shopItemList.list : shopItemList.byCategory[category];

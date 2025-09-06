@@ -2,8 +2,10 @@ import { useState } from "react";
 import VideoList from "./ViedeoList";
 import ShopList from "./ShopList";
 
+type Category = "크림" | "클렌저" | "선크림" | "전체";
+
 const Tab = ({ color, type }: { color: string; type: "video" | "shop" }) => {
-  const tabs = ["전체", "크림", "클렌저", "선크림"];
+  const tabs: Array<Category> = ["전체", "크림", "클렌저", "선크림"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const renderVideoContent = () => {
