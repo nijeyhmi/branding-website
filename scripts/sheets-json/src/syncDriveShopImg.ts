@@ -12,10 +12,37 @@ type SAJson = {
   // 나머지 필드는 사용 안 함
 };
 
+function loadServiceAccount() {
+  const env = process.env.SERVICE_ACCOUNT_KEY;
+
+  if (env) {
+    // JSON 본문 그대로 들어온 경우
+    if (env.trim().startsWith("{")) {
+      return JSON.parse(env);
+    }
+
+    // Base64로 들어온 경우
+    try {
+      const decoded = Buffer.from(env, "base64").toString("utf8");
+      return JSON.parse(decoded);
+    } catch {
+      // 그냥 패스
+    }
+
+    // 파일 경로로 들어온 경우
+    if (fs.existsSync(env)) {
+      return JSON.parse(fs.readFileSync(env, "utf8"));
+    }
+
+    throw new Error("SERVICE_ACCOUNT_KEY is not valid JSON / base64 / path");
+  }
+
+  // env 없을 때는 로컬 fallback 파일
+  const fallback = path.resolve("scripts/sheets-json/keys/serviceAccount.json");
+  return JSON.parse(fs.readFileSync(fallback, "utf8"));
+}
+
 const DRIVE_FOLDER_ID = process.env.DRIVE_FOLDER_ID;
-const GOOGLE_SERVICE_ACCOUNT =
-  process.env.SERVICE_ACCOUNT_KEY ??
-  "scripts/sheets-json/keys/serviceAccount.json";
 const DRIVE_IMAGE_DIR = process.env.DRIVE_IMAGE_DIR || "public/drive-images";
 
 // 이미지 MIME prefix
@@ -71,19 +98,11 @@ async function saveLocalMeta(dir: string, meta: LocalMeta) {
 }
 
 async function main() {
-  if (!DRIVE_FOLDER_ID || !GOOGLE_SERVICE_ACCOUNT) {
-    throw new Error("Missing env: DRIVE_FOLDER_ID or GOOGLE_SERVICE_ACCOUNT");
+  if (!DRIVE_FOLDER_ID) {
+    throw new Error("Missing env: DRIVE_FOLDER_ID");
   }
 
-  let sa: any;
-
-  if (process.env.SERVICE_ACCOUNT_KEY) {
-    sa = JSON.parse(GOOGLE_SERVICE_ACCOUNT);
-  } else {
-    const raw = fs.readFileSync(GOOGLE_SERVICE_ACCOUNT, "utf8");
-    sa = JSON.parse(raw);
-  }
-
+  const sa: SAJson = loadServiceAccount();
   const auth = new google.auth.JWT({
     email: sa.client_email,
     key: sa.private_key,
