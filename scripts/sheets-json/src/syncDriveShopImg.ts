@@ -13,31 +13,35 @@ type SAJson = {
 };
 
 function loadServiceAccount() {
-  const env = process.env.SERVICE_ACCOUNT_KEY;
+  const raw = process.env.SERVICE_ACCOUNT_KEY;
 
-  if (env) {
-    // JSON 본문 그대로 들어온 경우
-    if (env.trim().startsWith("{")) {
-      return JSON.parse(env);
+  if (raw && raw.trim().length > 0) {
+    const trimmed = raw.trim();
+
+    // JSON 본문 그대로 붙여넣은 경우
+    if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+      return JSON.parse(trimmed);
     }
 
-    // Base64로 들어온 경우
+    // base64로 넣은 경우 (ewog..., eyJ... 이런 형태)
     try {
-      const decoded = Buffer.from(env, "base64").toString("utf8");
+      const decoded = Buffer.from(trimmed, "base64").toString("utf8");
       return JSON.parse(decoded);
     } catch {
-      // 그냥 패스
+      // base64 아니면 그냥 넘어감
     }
 
-    // 파일 경로로 들어온 경우
-    if (fs.existsSync(env)) {
-      return JSON.parse(fs.readFileSync(env, "utf8"));
+    // 파일 경로로 넣은 경우 (로컬 테스트용)
+    if (fs.existsSync(trimmed)) {
+      return JSON.parse(fs.readFileSync(trimmed, "utf8"));
     }
 
-    throw new Error("SERVICE_ACCOUNT_KEY is not valid JSON / base64 / path");
+    throw new Error(
+      "SERVICE_ACCOUNT_KEY 값이 JSON / base64 / 파일경로 어디에도 해당하지 않음"
+    );
   }
 
-  // env 없을 때는 로컬 fallback 파일
+  // 아예 env 없으면 로컬 fallback
   const fallback = path.resolve("scripts/sheets-json/keys/serviceAccount.json");
   return JSON.parse(fs.readFileSync(fallback, "utf8"));
 }
