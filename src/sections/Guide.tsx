@@ -10,12 +10,12 @@ const Guide = ({
     >
       <section className="h-full">
         <div className="w-full h-full flex flex-col justify-center items-center py-10 sm:py-0">
-          <div className="flex justify-center items-center text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none mb-5">
-            <span className="pr-3 sm:pr-5">[</span>Free
+          <div className="flex justify-center items-center text-white text-4xl lg:text-5xl leading-none mb-5 font-bold">
+            <span className="pr-3 sm:pr-5 hidden sm:inline">[</span>Free
             <span className="pl-1 sm:pl-3 italic"> Guides </span>
-            <span className="pl-3 sm:pl-5">]</span>
+            <span className="pl-3 sm:pl-5 hidden sm:inline">]</span>
           </div>
-          <div className="text-center text-white text-md sm:text-lg">
+          <div className="text-center text-white text-base sm:text-lg">
             민감성 피부를 위한 무료 자료집
           </div>
           <div className="w-full flex md:flex-row flex-col items-center justify-evenly md:pt-10">
@@ -42,7 +42,7 @@ const Guide = ({
                 alt=""
                 className="w-[100px] md:w-[140px] mb-7"
               />
-              <button className="p-4 bg-red-100 text-primary w-[250px] sm:w-[280px] rounded-3xl">
+              <button className="p-4 bg-red-100 text-primary w-[250px] sm:w-[280px] rounded-3xl font-bold">
                 <a
                   href="https://bit.ly/43Id0lh"
                   target="_blank"
@@ -53,7 +53,7 @@ const Guide = ({
               </button>
             </div>
             <div className="w-full md:w-[40%]">
-              <div className="h-full flex flex-col text-sm sm:text-sm md:text-md lg:text-md leading-6 text-white px-10 pt-5 md:p-0">
+              <div className="h-full flex flex-col text-base sm:text-sm md:text-base leading-7 text-white px-10 pt-5 md:p-0 break-keep">
                 <p>
                   민감성 피부로 힘든 시간을 보낼 때,
                   <br />

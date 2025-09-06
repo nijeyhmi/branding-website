@@ -17,7 +17,6 @@ type VideoType = {
 };
 type Category = "크림" | "클렌저" | "선크림" | "전체";
 
-
 function chunkArrayWithPadding<T>(arr: T[], size: number): (T | null)[][] {
   const result: (T | null)[][] = [];
   for (let i = 0; i < arr.length; i += size) {
@@ -125,7 +124,7 @@ const VideoList = ({ type }: { type: Category }) => {
                       />
                     </div>
                     <div className="mt-2">
-                      <p className="font-semibold line-clamp-2 text-sm sm:text-md">
+                      <p className="font-semibold line-clamp-2 text-sm sm:text-base">
                         {video.snippet.title}
                       </p>
                       <p className="text-sm text-gray-600 font-nanum">
@@ -134,7 +133,7 @@ const VideoList = ({ type }: { type: Category }) => {
                       </p>
                     </div>
                     <div className="mt-2 mb-3 text-center text-primary font-bold cursor-pointer">
-                      <button className="relative py-1 text-sm sm:text-md font-bold text-primary after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:left-0 hover:after:w-full cursor-pointer after:bg-primary">
+                      <button className="relative py-1 text-sm sm:text-base font-bold text-primary after:content-[''] after:absolute after:left-1/2 after:bottom-0 after:h-[2px] after:w-0 after:transition-all after:duration-300 after:ease-out hover:after:left-0 hover:after:w-full cursor-pointer after:bg-primary">
                         <a
                           href={`https://www.youtube.com/watch?v=${video.id}`}
                           target="_blank"

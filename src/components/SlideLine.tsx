@@ -24,7 +24,7 @@ const SlideLine = ({
   const visibleTransform = "translate-x-0";
   const highlight = isHighlight
     ? "text-primary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight"
-    : "text-white text-shadow-md md:text-shadow-none md:text-secondary text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight";
+    : "text-white text-shadow-md md:text-shadow-none md:text-secondary text-5xl lg:text-6xl leading-tight";
 
   return (
     <div

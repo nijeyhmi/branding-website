@@ -10,14 +10,17 @@ const Chat = ({
     >
       <section className="h-full">
         <div className="w-full h-full flex flex-col justify-center items-center py-10 sm:py-0">
-          <div className="flex justify-center items-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none mb-5 font-bold">
-            <span className="pr-3 sm:pr-5">[</span>
-            <span className="pl-1 sm:pl-3 italic"> Let's </span>
-            <span className="pl-1 sm:pl-3 italic"> Chat </span>
-            <span className="pl-1 sm:pl-3 italic"> Together </span>
-            <span className="pl-3 sm:pl-5">]</span>
+          <div className="text-center text-4xl lg:text-5xl leading-none mb-5 font-bold">
+            <span className="pr-3 sm:pr-5 hidden md:inline">[</span>
+            <span className="pl-1 sm:pl-3 italic block sm:inline">
+              Let's Chat
+            </span>
+            <span className="pl-1 sm:pl-3 italic block sm:inline">
+              Together
+            </span>
+            <span className="pl-3 sm:pl-5 hidden md:inline">]</span>
           </div>
-          <div className="text-center text-primary text-md sm:text-lg">
+          <div className="text-center text-primary text-base sm:text-lg">
             민감피부, 이제 혼자 고민하지 마세요!
           </div>
           <div className="w-full flex md:flex-row flex-col items-center justify-center md:pt-10">
@@ -27,7 +30,7 @@ const Chat = ({
                 alt=""
                 className="w-[300px] md:w-[340px] mb-7"
               />
-              <button className="p-4 bg-red-100 text-primary w-[250px] sm:w-[280px] rounded-3xl">
+              <button className="p-4 bg-red-100 text-primary w-[250px] sm:w-[280px] rounded-3xl font-bold">
                 <a
                   href="https://cafe.naver.com/tomatoskinclub/3"
                   target="_blank"
@@ -38,8 +41,8 @@ const Chat = ({
               </button>
             </div>
             <div className="w-full">
-              <div className="h-full flex flex-col text-sm sm:text-sm md:text-md lg:text-md leading-6 px-10 pt-5 md:p-0">
-                <span className="bg-red-100 w-64">
+              <div className="h-full flex flex-col text-base sm:text-sm md:text-base leading-7 px-10 pt-5 md:p-0 break-keep">
+                <span className="bg-red-100 w-72">
                   📍 ”에즈윤 민감피부케어 카톡방"이란?
                 </span>
                 <p className="mt-3">

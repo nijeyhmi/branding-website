@@ -11,10 +11,10 @@ const About = ({
       <div className="mx-auto w-full md:max-w-[calc(100dvw-250px)] px-4 py-12 sm:py-4 flex flex-col justify-center md:flex-row md:items-center h-full">
         <div className="order-1 w-full md:w-1/2 py-5 md:py-36">
           <div className="border-r-0 md:border-r-2 md:h-full w-full flex flex-col justify-center items-center">
-            <div className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-bold">
+            <div className="text-5xl md:text-7xl lg:text-8xl font-bold">
               About Me
             </div>
-            <p className="font-bold text-primary text-center mt-5 sm:mt-10 md:mt-14 text-sm sm:text-xl md:text-lg lg:text-xl">
+            <p className="font-bold text-primary text-center mt-5 sm:mt-10 md:mt-14 break-keep text-base sm:text-xl md:text-lg lg:text-xl">
               “타인의 시선보다, 내 피부의 소리에 귀 기울이는 시간"
               <br />
               에즈윤은 '나다운 아름다움'을 찾아가는 여정을 함께합니다.
@@ -23,7 +23,7 @@ const About = ({
         </div>
 
         <div className="order-2 w-full md:w-1/2 sm:px-7 md:py-36 md:px-0">
-          <div className="h-full flex flex-col justify-center items-start text-sm sm:text-sm md:text-md lg:text-md md:pl-20 leading-6">
+          <div className="h-full flex flex-col justify-center items-start text-base sm:text-sm md:text-base md:pl-20 leading-7 break-keep">
             <p>
               안녕하세요. 민감성 피부 여정을 함께하는 에즈윤입니다.
               <br />

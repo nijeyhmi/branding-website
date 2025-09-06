@@ -30,7 +30,7 @@ const Tab = ({ color, type }: { color: string; type: "video" | "shop" }) => {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`w-1/4 mx-24 py-2 text-md sm:text-xl md:text-lg lg:text-xl transition-colors cursor-pointer text-${color} ${
+            className={`w-1/4 mx-24 py-2 text-base sm:text-xl md:text-lg lg:text-xl transition-colors cursor-pointer text-${color} ${
               activeTab === tab ? `border-b-4 border-${color} font-bold` : ""
             }`}
           >

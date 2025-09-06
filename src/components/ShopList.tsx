@@ -85,38 +85,38 @@ const ShopList = ({ category }: { category: Category }) => {
                     className="relative bg-white outline-2 outline-primary h-[400px] group hover:bg-primary pt-4 overflow-hidden"
                   >
                     <div
-                      className="w-full h-[150px] bg-contain bg-center bg-no-repeat"
+                      className="w-full h-[120px] md:h-[150px] bg-contain bg-center bg-no-repeat"
                       style={{
                         backgroundImage: `url(/img/shop/${encodeURIComponent(
                           item.name
                         )}.png)`,
                       }}
                     >
-                      <div className="text-sm sm:text-sm md:text-md lg:text-lg font-nanum mx-5 group-hover:text-white">
+                      <div className="text-sm sm:text-sm md:text-base lg:text-lg font-nanum mx-5 group-hover:text-white">
                         {`${i * chunkSize + idx + 1}`.padStart(2, "0")}
                       </div>
                     </div>
 
                     <div className="mx-4 py-5 text-center relative z-10 break-keep">
-                      <span className="text-sm sm:text-sm md:text-md lg:text-md font-bold group-hover:text-white">
+                      <span className="text-sm sm:text-sm md:text-base lg:text-base font-bold group-hover:text-white">
                         {item.name}
                       </span>
                       <p
-                        className="mt-2 text-sm sm:text-sm md:text-md lg:text-md group-hover:text-white/60 relative z-10 h-full"
+                        className="mt-2 text-sm sm:text-sm md:text-base lg:text-base group-hover:text-white/60 relative z-10 h-full"
                         dangerouslySetInnerHTML={{ __html: item.desc }}
                       ></p>
 
                       <div
                         className={`
-      mt-4 
-      flex justify-center
-      md:absolute md:inset-0 md:items-center md:justify-center md:z-20 
-      md:opacity-0 md:translate-y-2 
-      md:group-hover:opacity-100 md:group-hover:translate-y-0 
-      transition-all duration-300 ease-out
-    `}
+                          mt-4 
+                          flex justify-center
+                          md:absolute md:inset-0 md:items-center md:justify-center md:z-20 
+                          md:opacity-0 md:translate-y-2 
+                          md:group-hover:opacity-100 md:group-hover:translate-y-0 
+                          transition-all duration-300 ease-out
+                        `}
                       >
-                        <button className="px-5 py-2 text-md font-nanum rounded-xl bg-primary text-white border border-white cursor-pointer">
+                        <button className="px-5 py-2 text-base font-nanum rounded-xl bg-primary text-white border border-white cursor-pointer">
                           <a
                             href={item.url2 ? item.url2 : item.url1}
                             target="_blank"

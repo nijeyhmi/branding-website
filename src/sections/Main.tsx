@@ -33,7 +33,7 @@ const Main = () => {
             />
           </div>
           <div>
-            <button className="group relative inline-block text-secondary text-lg sm:text-xl md:text-2xl lg:text-3xl">
+            <button className="group relative inline-block text-secondary text-2xl lg:text-3xl">
               <span className="relative z-10">
                 <a
                   href="https://www.youtube.com/@%EC%97%90%EC%A6%88%EC%9C%A4Asyun-w7d"

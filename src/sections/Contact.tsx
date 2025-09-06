@@ -15,7 +15,7 @@ const Contact = ({
               <div className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-primary ">
                 Contact Me
               </div>
-              <p className="text-white text-end md:text-center mt-10 text-md sm:text-xl md:text-lg lg:text-xl font-nanum">
+              <p className="text-white text-end md:text-center mt-10 text-base sm:text-xl md:text-lg lg:text-xl font-nanum">
                 <span className="block">Let's Work Together</span>
                 <span className="block pt-1 sm:pt-3">
                   And Create Something Great
@@ -31,7 +31,7 @@ const Contact = ({
                   alt="Mail"
                   className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
-                <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
+                <span className="text-base sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
                   94yjung@naver.com
                 </span>
               </li>
@@ -41,7 +41,7 @@ const Contact = ({
                   alt="Call"
                   className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
-                <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
+                <span className="text-base sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
                   +82 010 6740 9786
                 </span>
               </li>
@@ -53,7 +53,7 @@ const Contact = ({
                 />
                 <a
                   href="https://www.youtube.com/@%EC%97%90%EC%A6%88%EC%9C%A4Asyun-w7d"
-                  className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white underline"
+                  className="text-base sm:text-xl md:text-lg lg:text-xl font-nanum text-white underline"
                 >
                   youtube.com/@에즈윤Asyun
                 </a>
@@ -64,7 +64,7 @@ const Contact = ({
                   alt="Kakaotalk"
                   className="w-8 h-8 sm:w-12 sm:h-12 block object-contain"
                 />
-                <span className="text-md sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
+                <span className="text-base sm:text-xl md:text-lg lg:text-xl font-nanum text-white">
                   As_yun
                 </span>
                 <img
