@@ -129,7 +129,7 @@ const ShopList = ({ category }: { category: Category }) => {
                     </div>
                   </div>
                 ) : (
-                  <div className="p-2"></div>
+                  <div className="p-2" key={idx}></div>
                 )
               )}
             </div>
