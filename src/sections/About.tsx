@@ -15,7 +15,7 @@ const About = ({
               About Me
             </div>
             <p className="font-bold text-primary text-center mt-5 sm:mt-10 md:mt-14 break-keep text-base sm:text-xl md:text-lg lg:text-xl">
-              “타인의 시선보다, 내 피부의 소리에 귀 기울이는 시간"
+              "타인의 시선보다, 내 피부의 소리에 귀 기울이는 시간"
               <br />
               에즈윤은 '나다운 아름다움'을 찾아가는 여정을 함께합니다.
             </p>
